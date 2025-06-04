@@ -1,0 +1,508 @@
+// Variables de colores
+$primary-red: #dc2626;
+$dark-red: #991b1b;
+$light-red: #f87171;
+$pure-black: #000000;
+$dark-gray: #1f2937;
+$medium-gray: #374151;
+$light-gray: #6b7280;
+$pure-white: #ffffff;
+$off-white: #f9fafb;
+
+// Header personalizado
+ion-header {
+  ion-toolbar {
+    --background: linear-gradient(135deg, #{$pure-black} 0%, #{$dark-gray} 50%, #{$dark-red} 100%);
+    --color: #{$pure-white};
+    --border-width: 0;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.5), transparent);
+    }
+    
+    ion-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 0.6s ease-out;
+    }
+    
+    ion-buttons {
+      ion-menu-button {
+        --color: #{$pure-white};
+        --color-hover: #{$light-red};
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    
+    ion-avatar {
+      width: 45px;
+      height: 45px;
+      border: 2px solid $primary-red;
+      border-radius: 50%;
+      box-shadow: 
+        0 0 0 2px $pure-white,
+        0 8px 20px rgba(220, 38, 38, 0.3);
+      animation: fadeInRight 0.6s ease-out;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 
+          0 0 0 2px $pure-white,
+          0 12px 25px rgba(220, 38, 38, 0.4);
+      }
+      
+      img {
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// Fondo principal del contenido
+ion-content {
+  --background: linear-gradient(135deg, #{$pure-black} 0%, #{$dark-gray} 50%, #{$dark-red} 100%);
+  --padding-start: 0;
+  --padding-end: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 20%, rgba(220, 38, 38, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(220, 38, 38, 0.15) 0%, transparent 50%);
+    z-index: 0;
+  }
+}
+
+// Segmentos personalizados
+ion-segment {
+  --background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  margin: 1rem;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  
+  ion-segment-button {
+    --background: transparent;
+    --background-checked: linear-gradient(135deg, #{$primary-red} 0%, #{$dark-red} 100%);
+    --color: #{$light-gray};
+    --color-checked: #{$pure-white};
+    --border-radius: 12px;
+    --indicator-color: transparent;
+    --ripple-color: rgba(220, 38, 38, 0.2);
+    
+    min-height: 48px;
+    margin: 4px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    &.segment-button-checked {
+      box-shadow: 
+        0 4px 20px rgba(220, 38, 38, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      
+      &::before {
+        left: 100%;
+      }
+      
+      ion-label {
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+    }
+    
+    &:not(.segment-button-checked):hover {
+      --background: rgba(255, 255, 255, 0.08);
+      --color: #{$pure-white};
+      transform: translateY(-1px);
+    }
+    
+    ion-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+// Contenedor de secciones
+.section-container {
+  margin: 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primary-red, $light-red, $primary-red);
+    border-radius: 20px 20px 0 0;
+  }
+  
+  // Colores específicos por sección
+  &.clientes-section::before {
+    background: linear-gradient(90deg, #10b981, #34d399, #10b981);
+  }
+  
+  &.empleados-section::before {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+  }
+  
+  &.inventario-section::before {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+  }
+}
+
+// Listas personalizadas
+ion-list {
+  background: transparent;
+  padding: 0;
+  
+  ion-list-header {
+    background: transparent;
+    padding: 1.5rem 1.5rem 1rem;
+    min-height: auto;
+    
+    ion-label {
+      color: $pure-white;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      
+      &::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 2px;
+        background: $primary-red;
+        margin-top: 0.5rem;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+// Items de la lista
+ion-item {
+  --background: transparent;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --color: #{$pure-white};
+  --padding-start: 1.5rem;
+  --padding-end: 1.5rem;
+  --min-height: 64px;
+  
+  margin: 0.5rem 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  &:hover {
+    --background: rgba(255, 255, 255, 0.08);
+    transform: translateX(8px) translateY(-2px);
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(220, 38, 38, 0.3);
+    border-color: rgba(220, 38, 38, 0.3);
+    
+    &::before {
+      left: 100%;
+    }
+    
+    ion-icon {
+      color: $primary-red;
+      transform: scale(1.2);
+    }
+    
+    ion-label {
+      color: $pure-white;
+      font-weight: 600;
+    }
+  }
+  
+  &:active {
+    transform: translateX(6px) translateY(-1px);
+  }
+  
+  ion-icon {
+    color: $light-gray;
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  ion-label {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  // Efectos específicos por sección
+  .clientes-section & {
+    &:hover {
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(16, 185, 129, 0.3);
+      border-color: rgba(16, 185, 129, 0.3);
+      
+      ion-icon {
+        color: #10b981;
+      }
+    }
+  }
+  
+  .empleados-section & {
+    &:hover {
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.3);
+      
+      ion-icon {
+        color: #3b82f6;
+      }
+    }
+  }
+  
+  .inventario-section & {
+    &:hover {
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(245, 158, 11, 0.3);
+      border-color: rgba(245, 158, 11, 0.3);
+      
+      ion-icon {
+        color: #f59e0b;
+      }
+    }
+  }
+}
+
+// Animaciones
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Efectos decorativos
+ion-content {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    right: -30px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+    z-index: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateY(-15px) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+// Partículas decorativas adicionales
+.section-container {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 4px;
+    height: 4px;
+    background: $primary-red;
+    border-radius: 50%;
+    box-shadow: 
+      20px 10px 0 rgba(220, 38, 38, 0.3),
+      40px 20px 0 rgba(220, 38, 38, 0.2),
+      60px 5px 0 rgba(220, 38, 38, 0.1);
+    animation: sparkle 3s ease-in-out infinite;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  ion-segment {
+    margin: 0.5rem;
+    
+    ion-segment-button {
+      ion-label {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  
+  .section-container {
+    margin: 0.5rem;
+  }
+  
+  ion-item {
+    --min-height: 60px;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    margin: 0.5rem 0.5rem;
+    
+    ion-icon {
+      font-size: 1.2rem;
+      margin-right: 0.8rem;
+    }
+    
+    ion-label {
+      font-size: 0.9rem;
+    }
+    
+    &:hover {
+      transform: translateX(4px) translateY(-1px);
+    }
+  }
+  
+  ion-list {
+    ion-list-header {
+      padding: 1rem 1rem 0.5rem;
+      
+      ion-label {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  ion-header ion-toolbar {
+    ion-title {
+      font-size: 1.1rem;
+    }
+    
+    ion-avatar {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  ion-segment {
+    ion-segment-button {
+      min-height: 44px;
+      
+      ion-label {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
